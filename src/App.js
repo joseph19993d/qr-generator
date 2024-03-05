@@ -12,9 +12,29 @@ function App() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [myName, setMayname] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem('isLoggedIn') || false
   );
+
+  useEffect(() => {
+    // Código para realizar efectos secundarios
+    // Este código se ejecutará después de que el componente se monte o actualice
+    // También se ejecutará antes de que el componente se desmonte
+    async function delay() {
+      console.log('Inicio');
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Espera 2 segundos
+      setMayname(' animate__animated animate__hinge');
+    }
+
+
+    return () => {
+      // Código para limpiar o cancelar los efectos secundarios, si es necesario
+      // Este código se ejecutará antes de que el componente se desmonte
+      delay();
+    };
+  }, [username]);
+  
   const handleLogin = () => {
     // Verifica si el usuario y la contraseña son correctos
     if (username === 'gets@digital' && password === 'qrpaswore2024') {
@@ -89,7 +109,7 @@ function App() {
             <div className='bg-gray-100 max-w-[500px] m-auto pb-[15px] rounded px-2 loginContent '>
 
             <div className="mx-auto max-w-lg text-center   ">
-              <p className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__hinge '>By joseph</p>
+              <p className={`text-2xl font-bold sm:text-3xl ml-1 text-purple-600 ${myName}  `} >By joseph</p>
               <h1 className="text-2xl font-bold sm:text-3xl flex flex-col ">Welcome to </h1>
               <p className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__bounce'>J-QR-Generator</p>
               <p className="mt-4 text-gray-500">
@@ -229,7 +249,7 @@ function App() {
                 </p>
               </div>
             </div>
-            <h1 className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__bounce mt-5'>Hello Gets, welcome.</h1>
+            <h1 className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__bounce mt-5  welcomeSms' >Hello Gets, welcome.</h1>
 
 
 
@@ -241,9 +261,9 @@ function App() {
                   type="text"
                   value={inputValue}
                   onChange={handleInputChange}
-                  placeholder="Ingrese el URL del código QR"
+                  placeholder=" Enter URL"
                 />
-                <button onClick={handleAddQRCode} className='ml-2 bg-purple-500 rounded px-3 py-2'>Add</button>
+                <button onClick={handleAddQRCode} className='ml-2 bg-purple-500 rounded px-3 py-2 mt-1'>Add</button>
               </div>
               <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
 

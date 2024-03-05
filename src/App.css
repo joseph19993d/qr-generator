@@ -64,6 +64,9 @@
 .loginContent{
   box-shadow: 5px 5px 1000px rgb(89, 65, 150)
 }
+.welcomeSms{
+  filter: drop-shadow(8px 5px 4px rgb(89, 65, 150));
+}
 /* 
 .card {
   width: 190px;
