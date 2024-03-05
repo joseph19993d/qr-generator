@@ -23,7 +23,7 @@ function App() {
     // También se ejecutará antes de que el componente se desmonte
     async function delay() {
       console.log('Inicio');
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Espera 2 segundos
+      await new Promise(resolve => setTimeout(resolve, 4000)); // Espera 2 segundos
       setMayname(' animate__animated animate__hinge');
     }
 
@@ -272,7 +272,7 @@ function App() {
                   <p className="text-sm text-gray-500">Showing <span> All </span> of All</p>
                 </div>
 
-                <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4  p-2">
+                <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4  p-2  animate__animated ">
                   {/* AQUI COMIENZA LA IMAGEN QR*/}
                   {qrCodes.map((code, index) => (
                     <div key={index} className='group block overflow-hidden  bg-purple-600 rounded-b-[10px]  w-[265px] h-[365px] m-auto'>
