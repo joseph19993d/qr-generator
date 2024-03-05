@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import 'animate.css'
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import { useRef } from 'react';
 import QRCode from 'react-qr-code';
