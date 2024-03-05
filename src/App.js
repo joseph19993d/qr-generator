@@ -23,7 +23,7 @@ function App() {
     // También se ejecutará antes de que el componente se desmonte
     async function delay() {
       console.log('Inicio');
-      await new Promise(resolve => setTimeout(resolve, 4000)); // Espera 2 segundos
+      await new Promise(resolve => setTimeout(resolve, 100)); // Espera 2 segundos
       setMayname(' animate__animated animate__hinge');
     }
 
