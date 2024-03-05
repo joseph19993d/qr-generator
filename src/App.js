@@ -73,7 +73,7 @@ function App() {
 
       // Crea un enlace temporal y simula un clic para descargar la imagen
       var link = document.createElement('a');
-      link.download = `qr-code-${index}.png`;
+      link.download = `j-qr-code-${index}.png`;
       link.href = dataUrl;
       link.click();
     });
@@ -84,9 +84,11 @@ function App() {
 
       <div className="App">
         {!isLoggedIn ? (
-          <div className=" App mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className=" App mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 ">
 
-            <div className="mx-auto max-w-lg text-center ">
+            <div className='bg-gray-100 max-w-[500px] m-auto pb-[15px] rounded px-2 loginContent '>
+
+            <div className="mx-auto max-w-lg text-center   ">
               <p className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__hinge '>By joseph</p>
               <h1 className="text-2xl font-bold sm:text-3xl flex flex-col ">Welcome to </h1>
               <p className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__bounce'>J-QR-Generator</p>
@@ -95,7 +97,7 @@ function App() {
               </p>
             </div>
 
-            <form action="#" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+            <form action="#" className="mx-auto mb-0 mt-8 max-w-md space-y-4   ">
               <div>
                 <label htmlFor="email" className="sr-only">Email</label>
 
@@ -130,7 +132,7 @@ function App() {
               <div>
                 <label htmlFor="password" className="sr-only">Password</label>
 
-                <div className="relative">
+                <div className="relative ">
                   <input
                     type="password"
                     className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
@@ -174,6 +176,7 @@ function App() {
                     {/* <a className="underline" href="#">Sign up</a> */}
 
                   </p>
+                  <a href='https://youtube.com/'>
                   <span>
                     <svg width="64px" height="35px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className='ml-[13px] md:ml-0 mt-[-8px] '>
                       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -192,6 +195,7 @@ function App() {
                       </g>
                     </svg>
                   </span>
+                  </a>
 
                   <p className='whatsapp ext-gray-500'> 3007111546</p>
                 </content>
@@ -206,14 +210,14 @@ function App() {
               </div>
             </form>
 
-
+            </div>
           </div>
         ) : (
           <div>
             <div className="fixed inset-x-0 bottom-0">
               <div className="bg-purple-900 px-4 py-3 text-white">
                 <p className="text-center text-sm font-medium">
-                  Not problem on exit, your data is on locacl localStorage.
+                  Not problem on exit, your data is on localStorage.
                   {/* <a href="#" className="inline-block underline"> Check out this new course! </a> */}
                   <button
                     type="submit"
@@ -225,13 +229,13 @@ function App() {
                 </p>
               </div>
             </div>
-            <h1 className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__bounce'>Hola Gets, welcome.</h1>
+            <h1 className='text-2xl font-bold sm:text-3xl ml-1 text-purple-600 animate__animated animate__bounce mt-5'>Hello Gets, welcome.</h1>
 
 
 
 
             <section className='m-auto'>
-              <h1>Generador de códigos QR - free - for ever</h1>
+              <h1> QR code Generator - last for ever</h1>
               <div>
                 <input
                   type="text"
@@ -239,24 +243,25 @@ function App() {
                   onChange={handleInputChange}
                   placeholder="Ingrese el URL del código QR"
                 />
-                <button onClick={handleAddQRCode} className='ml-2 bg-gray-400 rounded px-1 py-1'>Agregar</button>
+                <button onClick={handleAddQRCode} className='ml-2 bg-purple-500 rounded px-3 py-2'>Add</button>
               </div>
               <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
 
 
-                <div className="mt-8">
+                <div className="mt-1">
                   <p className="text-sm text-gray-500">Showing <span> All </span> of All</p>
                 </div>
 
-                <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ">
+                <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4  p-2">
                   {/* AQUI COMIENZA LA IMAGEN QR*/}
                   {qrCodes.map((code, index) => (
-                    <div key={index} className='group block overflow-hidden '>
-                      <div id={`qr-code-${index}`}>
-                        <QRCode value={code} />
+                    <div key={index} className='group block overflow-hidden  bg-purple-600 rounded-b-[10px]  w-[265px] h-[365px] m-auto'>
+                      <div id={`qr-code-${index}`} className=' bg-none w-[265px] h-[265px]  p-1 '>
+                        <QRCode value={code}  />
                       </div>
-                      <p>{code}</p>
-                      <button onClick={() => handleDownloadQRCode(index)}>Descargar</button>
+                      <button onClick={() => handleDownloadQRCode(index)}  className='  ml-2 bg-purple-900 px-4 py-3 text-white rounded   '>Descargar</button>
+                      <div><a href={code} className=' underline'>{code}</a></div>
+
                     </div>
                   ))}
 
